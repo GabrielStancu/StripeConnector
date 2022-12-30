@@ -10,3 +10,5 @@ To run inside Docker, run the commands:
 ###### docker-compose up
 
 To see a list of available endpoints, access the Swagger doc at http://localhost:5000/swagger/index.html. Any URL in the Doc has to be appended to the service's address (http://localhost:5000).
+
+Before running it, replace the [place key here] placeholder under the project root's "appsettings.json" with the secret key from your Stripe account.
