@@ -1,0 +1,7 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  web_api:
+    image: stripe_web_api
+    container_name: stripe_web_api
+    ports:
+      - "5200:80"
