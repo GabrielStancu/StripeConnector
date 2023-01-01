@@ -16,6 +16,7 @@ public class PaymentController : ControllerBase
         _stripeService = stripeService;
     }
 
+    [HttpPost]
     public async Task<ActionResult<StripePayment>> AddStripePayment([FromBody] AddPayment payment, CancellationToken ct)
     {
         StripePayment createdPayment = await _stripeService.AddStripePaymentAsync(payment, ct);
