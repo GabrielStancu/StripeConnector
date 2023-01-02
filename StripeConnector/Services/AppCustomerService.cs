@@ -54,7 +54,7 @@ public class AppCustomerService : IAppCustomerService
         }
         catch (Exception ex)
         {
-            Console.WriteLine("--> Could not create the customer. Check that the provided credentials are valid."
+            Console.WriteLine("--> Could not create the customer. Check that the provided credentials are valid. "
                 + $"Additional info: {ex.Message}");
 
             return null;
