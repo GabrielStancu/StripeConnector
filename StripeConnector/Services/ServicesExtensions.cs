@@ -6,7 +6,8 @@ public static class ServicesExtensions
 {
     public static void AddServices(this IServiceCollection services)
     {
-        services.AddScoped<IStripeAppService, StripeAppService>();
+        services.AddScoped<IAppCustomerService, AppCustomerService>();
+        services.AddScoped<IAppPaymentService, AppPaymentService>();
     }
 
     public static void AddStripe(this IServiceCollection services, IConfiguration config)

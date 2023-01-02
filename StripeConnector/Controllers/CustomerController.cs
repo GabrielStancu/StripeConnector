@@ -8,18 +8,21 @@ namespace StripeConnector.Controllers;
 [Route("api/[controller]")]
 public class CustomerController : ControllerBase
 {
-    private readonly IStripeAppService _stripeService;
+    private readonly IAppCustomerService _appCustomerService;
 
-    public CustomerController(IStripeAppService stripeService)
+    public CustomerController(IAppCustomerService appCustomerService)
     {
-        _stripeService = stripeService;
+        _appCustomerService = appCustomerService;
     }
 
     [HttpPost]
     public async Task<ActionResult<StripeCustomer>> AddStripeCustomer([FromBody] AddCustomer customer, CancellationToken ct)
     {
-        StripeCustomer createdCustomer = await _stripeService.AddStripeCustomerAsync(customer, ct);
+        StripeCustomer? createdCustomer = await _appCustomerService.AddStripeCustomerAsync(customer, ct);
 
-        return StatusCode(StatusCodes.Status200OK, createdCustomer);
+        if (createdCustomer is null)
+            return BadRequest();
+
+        return Ok(createdCustomer);
     }
 }
