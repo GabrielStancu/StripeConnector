@@ -36,7 +36,7 @@ public class AppPaymentService : IAppPaymentService
         }
         catch(Exception ex)
         {
-            Console.WriteLine("Could not create the payment. Check that the provided credentials are valid "
+            Console.WriteLine("--> Could not create the payment. Check that the provided credentials are valid "
                 + $"and the customer for which the payment is done exists. Additional info: {ex.Message}");
 
             return null;
